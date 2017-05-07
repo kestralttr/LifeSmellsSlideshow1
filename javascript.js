@@ -14,29 +14,43 @@ Array.prototype.forEach.call(thumbnailList,function(el,idx) {
   el.setAttribute("data-candle-name",candleArr[idx]);
   el.addEventListener("click",function() {
     currentCandle = this.getAttribute("data-candle-name");
-    activationObj[currentCandle]();
+    activationObj[currentCandle](candleArr[idx]);
   });
 });
 
-let activeThumbnail;
+let updateThumbnails = function() {
+  thumbnailList = document.getElementsByClassName("thumbnail-item");
+  Array.prototype.forEach.call(thumbnailList,function(el,idx) {
+    console.log(currentCandle);
+    if(el.getAttribute("data-candle-name") === currentCandle) {
+      el.classList.add("active-thumbnail");
+    } else {
+      el.classList.remove("active-thumbnail");
+    }
+  });
+};
 
+let activeThumbnail;
 let activationObj = {
-  "Tomato Leaf": function() {
+  "Tomato Leaf": function(candleName) {
+    currentCandle = candleName;
+    console.log(currentCandle);
     $("body").css("background-image","url('images/candles/tomatoleaf/bg1.jpg')");
     $("#product-image").css("background-image","url('images/tl1.png')");
     $("#product-text p").text("Bring the beautiful simplicity of nature into your home with the natural freshness of the tomato leaf.");
     $("#product-title").text("Tomato Leaf");
     $("#product-title").css("color","rgb(49,165,84)");
-    Array.prototype.forEach.call(thumbnailList,function(el,idx) {
-      if(el.getAttribute("data-candle-name") !== currentCandle) {
-        el.style.border = "0px solid white;";
-      } else {
-        el.style.border = "2px solid black";
-      }
-    });
+    updateThumbnails();
   },
-  "Gasoline": function() {
-    console.log("gasoline activated");
+  "Gasoline": function(candleName) {
+    currentCandle = candleName;
+    console.log(currentCandle);
+    $("body").css("background-image","url('')");
+    $("#product-image").css("background-image","url('')");
+    $("#product-text p").text("Sting the nostrils with the smell of refined petroleum to your heart's content.  Brain damage free.");
+    $("#product-title").text("Gasoline");
+    $("#product-title").css("color","rgb(49,165,84)");
+    updateThumbnails();
   },
   "Blueberry": function() {
     console.log("blueberry activated");
@@ -49,4 +63,4 @@ let activationObj = {
   },
 };
 
-activationObj[currentCandle]();
+activationObj[currentCandle](candleArr[0]);

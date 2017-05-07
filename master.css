@@ -154,6 +154,10 @@ body {
   cursor: pointer;
 }
 
+.active-thumbnail {
+  border:2px solid black;
+}
+
 #footer-bar {
   position: absolute;
   bottom:0;
