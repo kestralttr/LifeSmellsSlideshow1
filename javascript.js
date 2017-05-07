@@ -49,17 +49,38 @@ let activationObj = {
     $("#product-image").css("background-image","url('')");
     $("#product-text p").text("Sting the nostrils with the smell of refined petroleum to your heart's content.  Brain damage free.");
     $("#product-title").text("Gasoline");
-    $("#product-title").css("color","rgb(49,165,84)");
+    $("#product-title").css("color","orange");
     updateThumbnails();
   },
-  "Blueberry": function() {
-    console.log("blueberry activated");
+  "Blueberry": function(candleName) {
+    currentCandle = candleName;
+    console.log(currentCandle);
+    $("body").css("background-image","url('')");
+    $("#product-image").css("background-image","url('')");
+    $("#product-text p").text("Earth's most famous blue fruit gave its life for this lovely candle.");
+    $("#product-title").text("Blueberry");
+    $("#product-title").css("color","blue");
+    updateThumbnails();
   },
-  "Baby Powder": function() {
-    console.log("baby powder activated");
+  "Baby Powder": function(candleName) {
+    currentCandle = candleName;
+    console.log(currentCandle);
+    $("body").css("background-image","url('')");
+    $("#product-image").css("background-image","url('')");
+    $("#product-text p").text("No longer need you have another child as an excuse to keep buying baby powder.  Fill your almost empty house with its fragrance, commitment free.");
+    $("#product-title").text("Baby Powder");
+    $("#product-title").css("color","rgb(120,120,120)");
+    updateThumbnails();
   },
-  "Skunk": function() {
-    console.log("skunk activated");
+  "Skunk": function(candleName) {
+    currentCandle = candleName;
+    console.log(currentCandle);
+    $("body").css("background-image","url('')");
+    $("#product-image").css("background-image","url('')");
+    $("#product-text p").text("Some people dream about the scent of skunk.  Whoever you are, you're really weird, but we've got you covered.");
+    $("#product-title").text("Skunk");
+    $("#product-title").css("color","black");
+    updateThumbnails();
   },
 };
 
